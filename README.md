@@ -1,92 +1,96 @@
-# 🛒 Amazon Ürün Asistanı
+# 🛒 Amazon Product Assistant
 
-## Yapay Zekâ destekli Amazon ürün arama ve değerlendirme uygulamasıdır. Streamlit ile modern bir arayüz sunar, Selenium ile Amazon'dan veri çeker ve Google Gemini 2.5 Flash API ile anahtar kelime oluşturma, en iyi ürünleri seçme ve kullanıcı yorumlarını özetleme gibi akıllı işlemler gerçekleştirir.
-
-## 🚀 Özellikler
-
-* 🔎 Anahtar kelime oluşturma (Gemini) — kullanıcının doğal dil girdisini Amazon arama çubuğuna uygun kısa anahtar kelimelere dönüştürür
-* 🛒 Amazon ürün listeleme (Selenium) — başlık, fiyat, puan, yorum sayısı, görsel ve link bilgilerini çeker
-* 🧠 Gemini 2.5 Flash API ile **en iyi ürünleri seçme** 
-* ✨ AI destekli yorum analizi ve özetleme
-* 🎨 Modern Streamlit + CSS arayüz (başlık, buton stilleri, input vs.)
-* ⚠️ Amazon scraping için hata/exception handling ve chromedriver otomatik kurulum
+An AI-powered Amazon product search and evaluation application. It provides a modern UI built with **Streamlit**, collects data from **Amazon using Selenium**, and performs intelligent tasks such as keyword generation, best product selection, and user review summarization using the **Google Gemini 2.5 Flash API**.
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler
+## 🚀 Features
 
-| Teknoloji                                                                                              | Açıklama                            |
-| ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">          | Projenin ana programlama dili       |
-| <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white">    | Web arayüzü                         |
-| <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=white">      | Web scraping / otomasyon            |
-| <img src="https://img.shields.io/badge/chromedriver--autoinstaller-0A0A0A?style=flat">                 | Chromedriver otomatik kurulumu      |
-| <img src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=flat&logo=google&logoColor=white"> | Yapay zekâ modeli (text generation) |
-| <img src="https://img.shields.io/badge/python--dotenv-4E9A06?style=flat">                              | .env yönetimi (API anahtarı)        |
+* 🔎 **Keyword generation (Gemini)** — Converts natural language user queries into short Amazon-compatible search keywords
+* 🛒 **Amazon product scraping (Selenium)** — Extracts title, price, rating, review count, image, and product link
+* 🧠 **Best product selection using Gemini 2.5 Flash API**
+* ✨ **AI-powered review analysis and summarization**
+* 🎨 **Modern Streamlit + CSS interface** (custom buttons, headers, inputs, layout styling)
+* ⚠️ **Error/exception handling for Amazon scraping** + automatic chromedriver installation
 
 ---
 
-## 📦 Proje Yapısı
+## 🛠️ Technologies Used
+
+| Technology                                                                                             | Description                           |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">          | Main programming language             |
+| <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white">    | Web interface                         |
+| <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=white">      | Web scraping / automation             |
+| <img src="https://img.shields.io/badge/chromedriver--autoinstaller-0A0A0A?style=flat">                 | Automatic chromedriver installation   |
+| <img src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=flat&logo=google&logoColor=white"> | AI model (text generation & analysis) |
+| <img src="https://img.shields.io/badge/python--dotenv-4E9A06?style=flat">                              | .env management (API keys)            |
+
+---
+
+## 📦 Project Structure
 
 ```
-📦 amazon-asistan
+📦 amazon-assistant
 │
-├── main.py               # Streamlit arayüzü ve uygulama akışı (ilk kod bloğu)
-├── AmazonScraper.py      # Selenium ile Amazon'dan veri çekme ve yorumları alma
-├── GeminiApi.py          # Google Gemini entegrasyonu (anahtar kelime, seçim, özet)
-├── requirements.txt      # Gerekli Python paketleri
-├── .env                  # API anahtarları (API_KEY)
-├── screenshots/          # Arayüz ekran görüntüleri
+├── main.py               # Streamlit UI and application flow
+├── AmazonScraper.py      # Selenium-based Amazon scraping module
+├── GeminiApi.py          # Google Gemini integration (keywords, selection, summary)
+├── requirements.txt      # Required Python dependencies
+├── .env                  # API keys (API_KEY)
+├── screenshots/          # UI screenshots
 └── README.md
 ```
 
 ---
 
-## 🛠️ Gerekli Kurulumlar
+## 🛠️ Installation & Setup
 
-### 1️⃣ Sanal Ortam Oluşturma
+### 1️⃣ Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### 2️⃣ Sanal Ortamı Aktif Etme
+### 2️⃣ Activate the Virtual Environment
 
 ```bash
 # Windows
 .\venv\Scripts\activate
 
-# Mac / Linux
+# macOS / Linux
 source venv/bin/activate
 ```
 
-### 3️⃣ Gerekli Kütüphanelerin Kurulumu
+### 3️⃣ Install Required Libraries
 
-Tercih edilen yol: proje kökünde `requirements.txt` dosyası varsa:
+If `requirements.txt` exists:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Eğer `requirements.txt` yoksa şu paketleri kurun:
+If no requirements file is available, install the packages manually:
 
 ```bash
 pip install streamlit selenium chromedriver-autoinstaller google-generativeai python-dotenv
 ```
 
-> Not: Selenium sürücüsünü `chromedriver-autoinstaller` otomatik yüklemektedir. Sunucuda/CI ortamında headless mod ve ek bağımlılıklar (ör. libnss, xvfb) gerekebilir.
+> Note: `chromedriver-autoinstaller` automatically installs the correct ChromeDriver version. On servers/CI environments, headless mode and extra system dependencies (e.g., libnss, xvfb) may be required.
 
-### 🔑 API Anahtarı Ekleme
+### 🔑 Add API Key
 
-Proje klasörüne `.env` adında bir dosya ekleyin ve içine aşağıdaki satırı koyun:
+Create a file named `.env` in the project root directory and add:
 
 ```bash
 API_KEY="YOUR_API_KEY"
 ```
 
-Bu API_KEY, Gemini / Google Generative API anahtarınız olmalıdır.
+This is your Google Gemini / Generative AI API key.
 
-### ▶️ Uygulamayı Çalıştırma
+---
+
+### ▶️ Run the Application
 
 ```bash
 streamlit run main.py
@@ -94,19 +98,16 @@ streamlit run main.py
 
 ---
 
----
+## 📱 Screenshots
 
-## 📱 Ekran Görüntüleri
-
-|                                       |
-| ------------------------------------- |
-| ![Arayüz 1](screenshots/asistan1.png) |
+|                                |
+| ------------------------------ |
+| ![UI](screenshots/amazon1.png) |
 
 ---
 
-## | ![Arayüz 2](screenshots/asistan2.png) |
-
-
+|                                |
+| ------------------------------ |
+| ![UI](screenshots/amazon2.png) |
 
 ---
-
